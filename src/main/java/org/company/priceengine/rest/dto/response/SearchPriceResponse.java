@@ -7,7 +7,7 @@ public class SearchPriceResponse {
     private final long productId;
     private final int brandId;
     private final String rateToApply;
-    private final BigDecimal price;
+    private final String price;
     private final long applicationDate;
 
     public SearchPriceResponse(Builder builder) {
@@ -31,7 +31,7 @@ public class SearchPriceResponse {
     }
 
 
-    public BigDecimal getPrice() {
+    public String getPrice() {
         return price;
     }
 
@@ -44,7 +44,7 @@ public class SearchPriceResponse {
         private long productId;
         private int brandId;
         private String rateToApply;
-        private BigDecimal price;
+        private String price;
         private long applicationDate;
 
         public Builder brandId(int brandId) {
@@ -63,7 +63,7 @@ public class SearchPriceResponse {
         }
 
         public Builder price(BigDecimal price) {
-            this.price = price;
+            this.price = price.toPlainString();
             return this;
         }
 
