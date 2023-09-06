@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -22,8 +26,9 @@ class PriceEngineApplicationTests {
     }
 
     @Test
-    void test1() {
-        ResponseEntity<SearchPriceResponse> searchPriceResponseEntity = pricesController.searchPrice(1, 35455, 1592121600000L);
+    void test1() throws Exception {
+        long applicationDate = getDate("2020-06-14 10:00:00");
+        ResponseEntity<SearchPriceResponse> searchPriceResponseEntity = pricesController.searchPrice(1, 35455, applicationDate);
         assertEquals(200, searchPriceResponseEntity.getStatusCode().value());
         SearchPriceResponse searchPriceResponse = searchPriceResponseEntity.getBody();
         assertNotNull(searchPriceResponse);
@@ -31,12 +36,13 @@ class PriceEngineApplicationTests {
         assertEquals(35455, searchPriceResponse.getProductId());
         assertEquals(0, searchPriceResponse.getRateToApply());
         assertEquals("35.50", searchPriceResponse.getPrice());
-        assertEquals(1592121600000L, searchPriceResponse.getApplicationDate());
+        assertEquals(applicationDate, searchPriceResponse.getApplicationDate());
     }
 
     @Test
-    void test2() {
-        ResponseEntity<SearchPriceResponse> searchPriceResponseEntity = pricesController.searchPrice(1, 35455, 1592143200000L);
+    void test2() throws Exception {
+        long applicationDate = getDate("2020-06-14 16:00:00");
+        ResponseEntity<SearchPriceResponse> searchPriceResponseEntity = pricesController.searchPrice(1, 35455, applicationDate);
         assertEquals(200, searchPriceResponseEntity.getStatusCode().value());
         SearchPriceResponse searchPriceResponse = searchPriceResponseEntity.getBody();
         assertNotNull(searchPriceResponse);
@@ -44,12 +50,13 @@ class PriceEngineApplicationTests {
         assertEquals(35455, searchPriceResponse.getProductId());
         assertEquals(1, searchPriceResponse.getRateToApply());
         assertEquals("25.45", searchPriceResponse.getPrice());
-        assertEquals(1592143200000L, searchPriceResponse.getApplicationDate());
+        assertEquals(applicationDate, searchPriceResponse.getApplicationDate());
     }
 
     @Test
-    void test3() {
-        ResponseEntity<SearchPriceResponse> searchPriceResponseEntity = pricesController.searchPrice(1, 35455, 1592161200000L);
+    void test3() throws Exception {
+        long applicationDate = getDate("2020-06-14 21:00:00");
+        ResponseEntity<SearchPriceResponse> searchPriceResponseEntity = pricesController.searchPrice(1, 35455, applicationDate);
         assertEquals(200, searchPriceResponseEntity.getStatusCode().value());
         SearchPriceResponse searchPriceResponse = searchPriceResponseEntity.getBody();
         assertNotNull(searchPriceResponse);
@@ -57,12 +64,13 @@ class PriceEngineApplicationTests {
         assertEquals(35455, searchPriceResponse.getProductId());
         assertEquals(0, searchPriceResponse.getRateToApply());
         assertEquals("35.50", searchPriceResponse.getPrice());
-        assertEquals(1592161200000L, searchPriceResponse.getApplicationDate());
+        assertEquals(applicationDate, searchPriceResponse.getApplicationDate());
     }
 
     @Test
-    void test4() {
-        ResponseEntity<SearchPriceResponse> searchPriceResponseEntity = pricesController.searchPrice(1, 35455, 1592208000000L);
+    void test4() throws Exception {
+        long applicationDate = getDate("2020-06-15 10:00:00");
+        ResponseEntity<SearchPriceResponse> searchPriceResponseEntity = pricesController.searchPrice(1, 35455, applicationDate);
         assertEquals(200, searchPriceResponseEntity.getStatusCode().value());
         SearchPriceResponse searchPriceResponse = searchPriceResponseEntity.getBody();
         assertNotNull(searchPriceResponse);
@@ -70,12 +78,13 @@ class PriceEngineApplicationTests {
         assertEquals(35455, searchPriceResponse.getProductId());
         assertEquals(1, searchPriceResponse.getRateToApply());
         assertEquals("30.50", searchPriceResponse.getPrice());
-        assertEquals(1592208000000L, searchPriceResponse.getApplicationDate());
+        assertEquals(applicationDate, searchPriceResponse.getApplicationDate());
     }
 
     @Test
-    void test5() {
-        ResponseEntity<SearchPriceResponse> searchPriceResponseEntity = pricesController.searchPrice(1, 35455, 1592334000000L);
+    void test5() throws Exception {
+        long applicationDate = getDate("2020-06-16 21:00:00");
+        ResponseEntity<SearchPriceResponse> searchPriceResponseEntity = pricesController.searchPrice(1, 35455, applicationDate);
         assertEquals(200, searchPriceResponseEntity.getStatusCode().value());
         SearchPriceResponse searchPriceResponse = searchPriceResponseEntity.getBody();
         assertNotNull(searchPriceResponse);
@@ -83,7 +92,13 @@ class PriceEngineApplicationTests {
         assertEquals(35455, searchPriceResponse.getProductId());
         assertEquals(1, searchPriceResponse.getRateToApply());
         assertEquals("38.95", searchPriceResponse.getPrice());
-        assertEquals(1592334000000L, searchPriceResponse.getApplicationDate());
+        assertEquals(applicationDate, searchPriceResponse.getApplicationDate());
+    }
+
+    private long getDate(String date) throws ParseException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        Date parsedDate = dateFormat.parse(date);
+        return parsedDate.getTime();
     }
 
 
