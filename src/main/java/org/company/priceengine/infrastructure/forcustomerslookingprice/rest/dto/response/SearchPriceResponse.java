@@ -6,14 +6,12 @@ public class SearchPriceResponse {
 
     private final long productId;
     private final int brandId;
-    private final int rateToApply;
     private final String price;
     private final long applicationDate;
 
     public SearchPriceResponse(Builder builder) {
         this.productId = builder.productId;
         this.brandId = builder.brandId;
-        this.rateToApply = builder.rateToApply;
         this.price = builder.price;
         this.applicationDate = builder.applicationDate;
     }
@@ -25,11 +23,6 @@ public class SearchPriceResponse {
     public int getBrandId() {
         return brandId;
     }
-
-    public int getRateToApply() {
-        return rateToApply;
-    }
-
 
     public String getPrice() {
         return price;
@@ -43,7 +36,6 @@ public class SearchPriceResponse {
 
         private long productId;
         private int brandId;
-        private int rateToApply;
         private String price;
         private long applicationDate;
 
@@ -54,11 +46,6 @@ public class SearchPriceResponse {
 
         public Builder productId(long productId) {
             this.productId = productId;
-            return this;
-        }
-
-        public Builder rateToApply(int rateToApply) {
-            this.rateToApply = rateToApply;
             return this;
         }
 

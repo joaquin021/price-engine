@@ -12,7 +12,6 @@ public class SearchPriceResponseMapper {
         return new SearchPriceResponse.Builder()
                 .brandId(price.getBrandId())
                 .productId(price.getProductId())
-                .rateToApply(price.getPriority())
                 .price(price.getPrice())
                 .applicationDate(dataToSearchPrice.getApplicationDate().getTime())
                 .build();
