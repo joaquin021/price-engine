@@ -1,14 +1,14 @@
-package org.company.priceengine.domain.model;
+package org.company.priceengine.application.model;
 
 import java.sql.Timestamp;
 
-public class SearchPrice {
+public class DataToSearchPrice {
 
     private int brandId;
     private long productId;
     private Timestamp applicationDate;
 
-    public SearchPrice(int brandId, long productId, Timestamp applicationDate) {
+    public DataToSearchPrice(int brandId, long productId, Timestamp applicationDate) {
         this.brandId = brandId;
         this.productId = productId;
         this.applicationDate = applicationDate;

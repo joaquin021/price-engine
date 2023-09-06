@@ -1,4 +1,4 @@
-package org.company.priceengine.rest.dto.response;
+package org.company.priceengine.infrastructure.forcustomerslookingprice.rest.dto.response;
 
 import java.math.BigDecimal;
 
@@ -6,7 +6,7 @@ public class SearchPriceResponse {
 
     private final long productId;
     private final int brandId;
-    private final String rateToApply;
+    private final int rateToApply;
     private final String price;
     private final long applicationDate;
 
@@ -26,7 +26,7 @@ public class SearchPriceResponse {
         return brandId;
     }
 
-    public String getRateToApply() {
+    public int getRateToApply() {
         return rateToApply;
     }
 
@@ -43,7 +43,7 @@ public class SearchPriceResponse {
 
         private long productId;
         private int brandId;
-        private String rateToApply;
+        private int rateToApply;
         private String price;
         private long applicationDate;
 
@@ -57,7 +57,7 @@ public class SearchPriceResponse {
             return this;
         }
 
-        public Builder rateToApply(String rateToApply) {
+        public Builder rateToApply(int rateToApply) {
             this.rateToApply = rateToApply;
             return this;
         }

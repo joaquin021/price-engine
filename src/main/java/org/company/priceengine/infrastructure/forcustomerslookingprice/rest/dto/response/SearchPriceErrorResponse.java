@@ -1,4 +1,4 @@
-package org.company.priceengine.rest.dto.response;
+package org.company.priceengine.infrastructure.forcustomerslookingprice.rest.dto.response;
 
 public class SearchPriceErrorResponse {
 

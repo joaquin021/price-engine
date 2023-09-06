@@ -1,31 +1,14 @@
-package org.company.priceengine.persistence.entity;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+package org.company.priceengine.application.model;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 
-@Entity
 public class Price {
 
-    @Id
-    private long id;
     private int brandId;
     private long productId;
     private int priority;
     private BigDecimal price;
     private String currency;
-    private Timestamp startDate;
-    private Timestamp endDate;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public int getBrandId() {
         return brandId;
@@ -65,21 +48,5 @@ public class Price {
 
     public void setCurrency(String currency) {
         this.currency = currency;
-    }
-
-    public Timestamp getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Timestamp startDate) {
-        this.startDate = startDate;
-    }
-
-    public Timestamp getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Timestamp endDate) {
-        this.endDate = endDate;
     }
 }

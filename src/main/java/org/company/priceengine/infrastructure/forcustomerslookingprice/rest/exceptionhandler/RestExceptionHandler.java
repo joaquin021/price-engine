@@ -1,7 +1,7 @@
-package org.company.priceengine.rest.exceptionhandler;
+package org.company.priceengine.infrastructure.forcustomerslookingprice.rest.exceptionhandler;
 
-import org.company.priceengine.exception.ProductNotFoundException;
-import org.company.priceengine.rest.dto.response.SearchPriceErrorResponse;
+import org.company.priceengine.application.exception.ProductNotFoundException;
+import org.company.priceengine.infrastructure.forcustomerslookingprice.rest.dto.response.SearchPriceErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
