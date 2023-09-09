@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
-class PriceEngineApplicationTests {
+class PriceEngineApplicationTestsIT {
 
     @Autowired
     private PricesController pricesController;

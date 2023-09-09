@@ -37,4 +37,24 @@ public class DataToSearchPrice {
     public void setApplicationDate(Timestamp applicationDate) {
         this.applicationDate = applicationDate;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DataToSearchPrice that = (DataToSearchPrice) o;
+
+        if (brandId != that.brandId) return false;
+        if (productId != that.productId) return false;
+        return applicationDate.equals(that.applicationDate);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = brandId;
+        result = 31 * result + (int) (productId ^ (productId >>> 32));
+        result = 31 * result + applicationDate.hashCode();
+        return result;
+    }
 }

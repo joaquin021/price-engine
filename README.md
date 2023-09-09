@@ -10,6 +10,26 @@ This in an application that implements a price engine.
 - Driving: The driver actors driving the application via Rest API.
 - Driven: The driven port has been implemented with an adapter that uses an H2 database.
 
+# Build
+
+## Compile without tests
+
+```bash
+mvn clean install -Dmaven.test.skip
+```
+
+## Compile with unit tests
+
+```bash
+mvn clean install
+```
+
+## Compile with unit tests and integration tests
+
+```bash
+mvn clean install -PintegrationTests
+```
+
 # Execute acceptance test
 
 ```bash
